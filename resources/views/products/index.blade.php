@@ -32,7 +32,7 @@
                 onmouseout="this.style.border='2px solid lightblue'"
             >Create Product</a>
 
-            <table class="w-full border-collapse border">
+            <table class="w-full border-collapse border" style="margin-top :20px">
                 <thead>
                     <tr>
                         <th class="border p-2">Name</th>
@@ -49,16 +49,16 @@
                             <td class="border p-2">{{ $product->description }}</td>
                             <td class="border p-2">{{ $product->price }}</td>
                             <td class="border p-2">{{ $product->stock_quantity }}</td>
-                            <td class="border p-2">
-                                <a href="{{ route('products.edit', $product) }}" 
-                                    style="background-color: lightblue; padding: 10px;" 
+                            <td class="border p-2" style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                                <a href="{{ route('products.edit', $product) }}"
+                                    style="background-color: lightblue; border: 1px solid blue; padding: 5px 10px; cursor: pointer;"  
                                     onmouseover="this.style.border='2px solid blue'" 
                                     onmouseout="this.style.border='2px solid lightblue'">Edit</a>
                                 <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('Are you sure?')"
-                                        style="background-color: lightred;padding:5px;background: red" 
+                                    <button onclick="return confirm('Are you sure?')" 
+                                        style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;"
                                         onmouseover="this.style.border='2px solid red'" 
                                         onmouseout="this.style.border='2px solid lightred'">Delete</button>
                                 </form>
